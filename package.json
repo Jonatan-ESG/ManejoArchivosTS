@@ -10,7 +10,7 @@
     "scripts": {
         "build": "tsc",
         "start": "node build/src/index",
-        "dev": "nodemon"
+        "dev": "nodemon src/index.ts"
     },
     "dependencies": {
         "nodemon": "^3.1.10",

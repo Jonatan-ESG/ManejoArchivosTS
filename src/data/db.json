@@ -50,5 +50,6 @@
         { "id": 48, "nombre": "Victoir", "apellido": "O'Loghlen", "saldo": 3445.0 },
         { "id": 49, "nombre": "Valera", "apellido": "Hubach", "saldo": 1123.69 },
         { "id": 50, "nombre": "Sapphire", "apellido": "Grinishin", "saldo": 362.85 }
-    ]
+    ],
+    "estudiantes": []
 }
