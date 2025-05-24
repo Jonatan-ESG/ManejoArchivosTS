@@ -1,9 +1,24 @@
-import { listar } from './operaciones'
+import { insertar, listar } from './operaciones'
 import { Cliente } from './tipos/cliente'
 import { Estudiante } from './tipos/estudiante'
 
-const datosProcesadosClientes = listar<Cliente>('clientes', true, 10, 20)
-const datosProcesadosEstudiantes = listar<Estudiante>('estudiantes', true, 0, 10)
+const datosProcesadosClientes = listar<Cliente>({
+    nombreTabla: 'clientes'
+})
+
+const estudiante: Estudiante = {
+    nombre: 'Darwin Ruiz',
+    nota: 70
+}
+
+insertar('estudiantes', 'id', estudiante)
+
+const datosProcesadosEstudiantes = listar<Estudiante>({
+    nombreTabla: 'estudiantes',
+    aplicarPaginacion: true,
+    inicioRegistros: 0,
+    limiteRegistros: 20
+})
 
 console.log(datosProcesadosClientes)
 console.log(datosProcesadosEstudiantes)
