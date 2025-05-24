@@ -40,4 +40,15 @@ function insertar<T>(nombreTabla: string, nombreIdentificador: string, data: T):
     guardarCambiosDB(db)
 }
 
-export { listar, insertar }
+function eliminar(nombreTabla: string, nombreIdentificador: string, valor: number):void{
+    const datos = db[nombreTabla];
+    if (datos === undefined || datos === null) throw new Error("No existe la tabla en la base de datos")
+    
+        const nuevosDatos = datos.filter((dato1) => {
+            return dato1[nombreIdentificador] !== valor
+        })
+        db[nombreTabla] = nuevosDatos
+        guardarCambiosDB(db)
+}
+
+export { listar, insertar, eliminar}

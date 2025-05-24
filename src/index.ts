@@ -1,4 +1,5 @@
-import { insertar, listar } from './operaciones'
+import { eliminar, insertar, listar } from './operaciones'
+
 import { Cliente } from './tipos/cliente'
 import { Estudiante } from './tipos/estudiante'
 
@@ -11,7 +12,7 @@ const estudiante: Estudiante = {
     nota: 70
 }
 
-insertar('estudiantes', 'id', estudiante)
+//insertar('estudiantes', 'id', estudiante)
 
 const datosProcesadosEstudiantes = listar<Estudiante>({
     nombreTabla: 'estudiantes',
@@ -20,5 +21,6 @@ const datosProcesadosEstudiantes = listar<Estudiante>({
     limiteRegistros: 20
 })
 
+eliminar("estudiantes","id",10)
 console.log(datosProcesadosClientes)
 console.log(datosProcesadosEstudiantes)
