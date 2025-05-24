@@ -1,0 +1,21 @@
+{
+    "name": "manejoarchivos",
+    "version": "1.0.0",
+    "description": "",
+    "homepage": "",
+    "license": "ISC",
+    "author": "",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node build/src/index",
+        "dev": "nodemon"
+    },
+    "dependencies": {
+        "nodemon": "^3.1.10",
+        "readline-sync": "^1.4.10",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3"
+    }
+}
