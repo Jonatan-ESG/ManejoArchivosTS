@@ -1,4 +1,4 @@
-import { eliminar, insertar, listar } from './operaciones'
+import { eliminar, insertar, listar, actualizar } from './operaciones'
 
 import { Cliente } from './tipos/cliente'
 import { Estudiante } from './tipos/estudiante'
@@ -22,5 +22,7 @@ const datosProcesadosEstudiantes = listar<Estudiante>({
 })
 
 eliminar("estudiantes","id",10)
+
+actualizar<Estudiante>('estudiantes', 'id', {nombre: 'Dallin Osorio', nota: 80 }, 14, ['nota'] )
 console.log(datosProcesadosClientes)
 console.log(datosProcesadosEstudiantes)

@@ -51,4 +51,26 @@ function eliminar(nombreTabla: string, nombreIdentificador: string, valor: numbe
         guardarCambiosDB(db)
 }
 
-export { listar, insertar, eliminar}
+function actualizar<T> (nombreTabla: string, nombreIdentificador: string, data: T, valorId: number, nombresCampos: string[]): void{
+    let datos = db[nombreTabla]
+
+    if (datos === undefined || datos === null) {
+        throw new Error('No hay datos para actualizar');
+    }
+
+    const datoActualizar = datos.find(registro => registro[nombreIdentificador] == valorId) 
+    if(datoActualizar == undefined){
+        throw new Error ('No se econtró el dato a actualizar')
+    }
+    const registroNuevo: any = { ...data }
+
+    for (const element of nombresCampos) {
+        datoActualizar[element] = registroNuevo[element]
+    }
+    const nuevoDatos = datos.filter((dato: any) => dato[nombreIdentificador] !== valorId)
+    nuevoDatos.push(datoActualizar)
+    db[nombreTabla] = nuevoDatos
+    guardarCambiosDB(db)
+}
+
+export { listar, insertar, eliminar, actualizar }
